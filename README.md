@@ -37,14 +37,13 @@ rows, cols, _ = image.shape
 M_translate = np.float32([[1, 0, 50], [0, 1, 100]])  # Translate by (50, 100) pixels
 translated_image = cv2.warpAffine(image_rgb, M_translate, (cols, rows))
 
-plt.subplot(2, 3, 2)
 plt.imshow(translated_image)
 plt.title("Translated Image")
 plt.axis('off')
 # 2. Scaling
 scaled_image = cv2.resize(image_rgb, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_LINEAR)  # Scale by 1.5x
 
-plt.subplot(2, 3, 3)
+
 plt.imshow(scaled_image)
 plt.title("Scaled Image")
 plt.axis('off')
@@ -53,7 +52,7 @@ plt.axis('off')
 M_shear = np.float32([[1, 0.5, 0], [0.5, 1, 0]])  # Shear with factor 0.5
 sheared_image = cv2.warpAffine(image_rgb, M_shear, (int(cols * 1.5), int(rows * 1.5)))
 
-plt.subplot(2, 3, 4)
+
 plt.imshow(sheared_image)
 plt.title("Sheared Image")
 plt.axis('off')
@@ -61,7 +60,7 @@ plt.axis('off')
 # 4. Reflection (Flip)
 reflected_image = cv2.flip(image_rgb, 1)  # Horizontal reflection (flip along y-axis)
 
-plt.subplot(2, 3, 4)
+
 plt.imshow(sheared_image)
 plt.title("Sheared Image")
 plt.axis('off')
@@ -70,7 +69,7 @@ plt.axis('off')
 M_rotate = cv2.getRotationMatrix2D((cols / 2, rows / 2), 45, 1)  # Rotate by 45 degrees
 rotated_image = cv2.warpAffine(image_rgb, M_rotate, (cols, rows))
 
-plt.subplot(2, 3, 6)
+\
 plt.imshow(rotated_image)
 plt.title("Rotated Image")
 plt.axis('off')
